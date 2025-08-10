@@ -462,7 +462,8 @@
     "duration": "10 turns",
     "range": "9 m /  30ft",
     "type": "-",
-    "damage": []
+    "damage": [],
+    "concentration": true
   },
   {
     "id": "burning-hands",
@@ -861,7 +862,8 @@
         "dice": "1d6",
         "damageType": "Necrotic"
       }
-    ]
+    ],
+    "concentration": true
   },
   {
     "id": "hunter-s-mark",
@@ -879,7 +881,8 @@
         "dice": "1d6",
         "damageType": "Weapon"
       }
-    ]
+    ],
+    "concentration": true
   },
   {
     "id": "ice-knife",

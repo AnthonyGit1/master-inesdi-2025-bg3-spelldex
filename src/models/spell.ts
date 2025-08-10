@@ -13,6 +13,7 @@ export type Spell = {
     dice: string;
     damageType: string;
   }[];
+  concentration?: boolean;
 };
 
 export type SpellId =

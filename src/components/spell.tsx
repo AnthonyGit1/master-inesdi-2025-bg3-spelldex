@@ -3,6 +3,8 @@ import { useEffect, useMemo, useState } from "react";
 import upcastIcon from "src/assets/icons/other/upcast.png";
 
 import type { Spell } from "src/models/spell";
+import { SpellTooltipContent } from "./spell-tooltip";
+import { Tooltip } from "./tooltip";
 
 import styles from "./spell.module.css";
 
@@ -54,6 +56,17 @@ export function Spell({
     setSelected(!selected);
   };
 
+  const onKeyDown = (event: React.KeyboardEvent) => {
+    if (!detailed) {
+      return;
+    }
+
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      setSelected(!selected);
+    }
+  };
+
   return (
     <article
       className={c(
@@ -65,17 +78,32 @@ export function Spell({
       data-spell-id={spell.id}
       style={animatedSpellStyles}
       aria-label={spell.name}
-      aria-detailed={detailed ? "true" : "false"}
-      {...(detailed ? { onClick } : {})}
+      aria-expanded={detailed ? "true" : "false"}
+      {...(detailed ? { 
+        onClick, 
+        onKeyDown,
+        tabIndex: 0,
+        role: "button",
+        "aria-pressed": selected ? "true" : "false"
+      } : {})}
     >
-      {detailed && showImage && (
-        <div className={styles.image}>
-          <img src={spell.icon} alt={spell.name} className={styles.icon} />
-          {spell.upcast && (
-            <img src={upcastIcon} alt="upcast" className={styles.upcast} />
-          )}
-        </div>
-      )}
+      {detailed && showImage ? (
+        <Tooltip 
+          content={
+            <SpellTooltipContent 
+              spell={spell} 
+              requiresConcentration={spell.concentration}
+            />
+          }
+        >
+          <div className={styles.image}>
+            <img src={spell.icon} alt={spell.name} className={styles.icon} />
+            {spell.upcast && (
+              <img src={upcastIcon} alt="upcast" className={styles.upcast} />
+            )}
+          </div>
+        </Tooltip>
+      ) : null}
     </article>
   );
 }

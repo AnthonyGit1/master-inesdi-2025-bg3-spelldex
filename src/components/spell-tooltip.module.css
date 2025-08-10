@@ -1,0 +1,85 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: bold;
+  color: var(--accent, var(--gold-accent));
+  text-align: center;
+}
+
+.level {
+  font-size: 12px;
+  color: var(--text-medium);
+  text-align: center;
+  font-style: italic;
+}
+
+.icons {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.iconItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.concentrationIcon {
+  font-size: 14px;
+}
+
+.upcastIcon {
+  width: 14px;
+  height: 14px;
+  object-fit: cover;
+}
+
+.iconLabel {
+  color: var(--text-light);
+}
+
+.damageTypes {
+  border-top: 1px solid var(--ink-medium);
+  padding-top: 8px;
+}
+
+.damageLabel {
+  font-size: 12px;
+  color: var(--text-medium);
+  font-weight: bold;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.damageIcons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.damageIcon {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 6px;
+  background-color: var(--ink-medium);
+  border-radius: 12px;
+  font-size: 11px;
+}
+
+.damageSymbol {
+  font-size: 12px;
+}
+
+.damageTypeName {
+  color: var(--text-light);
+  font-weight: 500;
+}
